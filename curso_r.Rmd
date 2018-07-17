@@ -1,0 +1,67 @@
+---
+title: "Introducción al Análisis de Datos para Odontología"
+author: Sergio Uribe
+output: 
+  html_notebook: 
+    toc: yes
+    toc_float: true
+    fig_caption: true
+---
+
+# Introducción al análisis de datos
+
+## R y Rstudio
+### R
+
+### Paquetes
+
+if (!require("gapminder")) install.packages("gapminder") #instala paquetes en caso que no estén instalados
+
+
+### Rstudio
+
+# Organizar una estrategia de recopilación de datos
+## Tipos de datos
+## Ingreso de datos
+## Tamaño muestral: ¿cuantos datos son necesarios?
+
+# Análisis exploratorio de datos
+## Limpieza de datos
+
+## Reformatear datos
+
+```{r, warning=FALSE}
+library(tidyverse)
+messydata <- tibble(id = c("ciudad 1", "ciudad 2", "ciudad 3"),
+                    centro = c(4, 2, 5),
+                    periferia = c(8, 6, 9))
+```
+```{r}
+messydata
+```
+
+
+
+```{r}
+messydata %>% 
+  gather(key = "Ubicación", value = "COPD", centro:periferia) %>% 
+  ggplot(aes(x = Ubicación, y = COPD)) + 
+  geom_boxplot() + 
+  labs(title = "Severidad de caries", x = "Ubicación", y = "COPD") + 
+  theme_minimal()
+```
+
+
+
+## Resumir datos: Gráficos
+## Resumir datos: Tablas
+
+# Análisis inferencial
+## Introducción al análisis inferencial
+## Comparar grupos
+### Comparar proporciones: ¿hay diferencias entre cantidad de pacientes con una característica entre grupos?
+### Comparar números: ¿hay diferencias entre grupos acerca de una variable numérica?
+### Encontrar asociaciones: ¿se relacionan de alguna manera dos variables?
+### Análisis de sobrevida
+#### Sobrevida: ¿cuanto tiempo hay a un evento?
+#### Sobrevida: ¿qué factores explican diferencias en la sobrevida?
